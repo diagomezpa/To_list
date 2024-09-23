@@ -2,12 +2,16 @@
 
 Una aplicación de Flutter para gestionar una lista de tareas (ToDo) utilizando `shared_preferences` para el almacenamiento local.
 
+## Versión de Flutter 
+Flutter 3.24.2 
+
 ## Características
 
 - Añadir nuevas tareas
 - Marcar tareas como completadas
 - Eliminar tareas
 - Persistencia de datos utilizando `shared_preferences`
+- Uso de Provider para el control de estados.
 
 ## Capturas de Pantalla
 ![Vacia](assets/Vacia.jpeg)
