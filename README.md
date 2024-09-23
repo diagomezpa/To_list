@@ -14,9 +14,9 @@ Flutter 3.24.2
 - Uso de Provider para el control de estados.
 
 ## Capturas de Pantalla
-![Vacia](assets/Vacia.jpeg)
-![Terminada](assets/terminada.jpeg)
-![Dos Tareas](assets/dos.jpeg)
+<img src="assets/Vacia.jpeg" alt="Vacia" width="300"/>
+<img src="assets/terminada.jpeg" alt="Terminada" width="300"/>
+<img src="assets/dos.jpeg" alt="Dos Tareas" width="300"/>
 
 ## Instalación
 
