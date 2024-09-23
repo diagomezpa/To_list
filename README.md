@@ -9,6 +9,11 @@ Una aplicación de Flutter para gestionar una lista de tareas (ToDo) utilizando 
 - Eliminar tareas
 - Persistencia de datos utilizando `shared_preferences`
 
+## Capturas de Pantalla
+![Vacia](assets/Vacia.jpeg)
+![Terminada](assets/terminada.jpeg)
+![Dos Tareas](assets/dos.jpeg)
+
 ## Instalación
 
 1. Clona este repositorio:
