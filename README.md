@@ -9,6 +9,11 @@ Una aplicación de Flutter para gestionar una lista de tareas (ToDo) utilizando 
 - Eliminar tareas
 - Persistencia de datos utilizando `shared_preferences`
 
+## Capturas de Pantalla
+![Vacia](assets/Vacia.jpeg)
+![Terminada](assets/terminada.jpeg)
+![Dos Tareas](assets/dos.jpeg)
+
 ## Instalación
 
 1. Clona este repositorio:
@@ -67,3 +72,52 @@ class Todo {
     );
   }
 }
+```
+
+### Proveedor de Tareas (TodoProvider)
+
+```dart
+import 'dart:convert';
+import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'todo.dart';
+
+class TodoProvider with ChangeNotifier {
+  List<Todo> _todos = [];
+
+  List<Todo> get todos => _todos;
+
+  void addTodo(Todo todo) {
+    _todos.add(todo);
+    notifyListeners();
+    _saveToPrefs();
+  }
+
+  void toggleTodoStatus(int index) {
+    _todos[index].isDone = !_todos[index].isDone;
+    notifyListeners();
+    _saveToPrefs();
+  }
+
+  void removeTodo(int index) {
+    _todos.removeAt(index);
+    notifyListeners();
+    _saveToPrefs();
+  }
+
+  Future<void> _saveToPrefs() async {
+    final prefs = await SharedPreferences.getInstance();
+    prefs.setString('todos', jsonEncode(_todos.map((todo) => todo.toJson()).toList()));
+  }
+
+  Future<void> loadFromPrefs() async {
+    final prefs = await SharedPreferences.getInstance();
+    final todosString = prefs.getString('todos');
+    if (todosString != null) {
+      final List<dynamic> todosJson = jsonDecode(todosString);
+      _todos = todosJson.map((json) => Todo.fromJson(json)).toList();
+      notifyListeners();
+    }
+  }
+}
+```
